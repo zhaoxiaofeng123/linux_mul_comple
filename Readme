@@ -1,0 +1,23 @@
+
+例子：
+1/python  port.py  --help   显示帮助信息
+
+2/端口检测
+python  port.py  --format cmd_line    -c  10.141.90.220:10.141.90.135  -e port  --port  9100  从命令行获取ip检测端口
+python  port.py  --format  file -f  iplist.text   -e port  --port  9100  通过文件获取ip列表进行端口检测
+
+
+
+
+3/针对批量ip的传输文件
+python port.py  --format  cmd_line  -c  10.141.90.220:10.141.90.135:10.141.90.158   -e  file  --files   pass:/app   --username  root   --passwd  123456
+
+
+4/针对批量执行命令
+python port.py  --format  file  -f s.txt     -e  cmd  --cmd "[{'port':'3306','file':'','cmd':'','source':False},{'file':'pass.tar.gz:/root/pass.tar.gz','port':'','cmd':'','source':True},
+{'cmd':'tar  xvf /root/pass.tar.gz  -C  /root','file':'','port':'','source':True}]"   --username  root   --passwd  123456
+
+5/针对本次node-exporter安装所编写的方法
+python  port.py  --format cmd_line    -c  10.141.90.220:10.141.90.135  -e fun --filefun /app/prometheus  --username root --passwd  123456   检测文件是否存在，然后执行操作
+
+
